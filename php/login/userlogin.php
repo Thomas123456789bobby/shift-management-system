@@ -1,9 +1,6 @@
+<?php include('../include/header.php'); ?>
 <?php
-    error_reporting(E_ALL);
-    ini_set("display_errors", 1);
-
-
-    include "../include/Connectdb.php";
+    include('../../database/connectdb.php');
     $sql = "SELECT * FROM admin WHERE name=:name AND pass=:pass";
     $st = $db->prepare($sql);
     $st->execute([
@@ -13,9 +10,9 @@
 
     if ($row = $st->fetch()) {
         $_SESSION['login'] = true;
-        header("Location: /php/ChatBox/AdminChatbox.php");
+        echo $_SESSION['login'];
+        header("Location: /php/home.php");
     } else {
-        echo "werkt niet";
-        $_SESSION["msg"] = "<em>Onbekende inlog!</em><br><br>";
+        echo "onjust";
     }
 ?>

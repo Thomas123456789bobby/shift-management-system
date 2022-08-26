@@ -1,4 +1,10 @@
-<?php include('php/include/header.php'); ?>
-<?php include('php/include/navbar.php'); ?>
-<h1> hello world </h1>
-<?php include('php/include/footer.php'); ?>
+<?php include('include/header.php'); 
+
+if ($_SESSION["login"] == true){
+    include('include/navbar.php'); 
+} else {
+    header("Location: /index.php");
+}
+?>
+
+<?php include('include/footer.php'); ?>
