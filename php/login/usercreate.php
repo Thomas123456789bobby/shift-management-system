@@ -2,7 +2,7 @@
 <?php include('../../database/connectdb.php'); ?>
     <form method="post" action="/php/login/create.php">
     <div class="form-group">
-    <label for="exampleInputname1">name address</label>
+    <label for="exampleInputname1">name</label>
     <input type="text" name="name" class="form-control" id="exampleInputname1" aria-describedby="emailHelp" placeholder="Enter name">
   </div>
   <div class="form-group">

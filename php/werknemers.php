@@ -12,6 +12,8 @@ if ($_SESSION["login"] == true){
         <td>name</td>
         <td>email</td>
         <td>pass</td>
+        <td>wijzigen</td>
+        <td>verwijderen</td>
         </tr> <?php 
     while($row = $sth->fetch()) { ?>
         <div class="row justify-content-center">
@@ -20,6 +22,15 @@ if ($_SESSION["login"] == true){
             <td><?php echo $row["name"]; ?></td>
             <td><?php echo $row["email"]; ?></td>
             <td>.......</td>
+            <td><form action="/php/login/userwijzigen.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $row["id"]?>">
+                <input type="submit" class="btn btn-info" name="submit" value="wijzigen">
+            </form></td>
+            <td><form action="/php/login/userverwijderen.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $row["id"]?>">
+                <input type="submit" class="btn btn-danger" value="verwijderen">
+            </form></td>
+            
         </tr>
         </div>
         </div>
