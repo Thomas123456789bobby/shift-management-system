@@ -33,9 +33,11 @@ function draw_calendar($month,$year){
 	/* keep going with days.... */
 	for($list_day = 1; $list_day <= $days_in_month; $list_day++):
 		$calendar.= '<td class="calendar-day" id="'.$list_day.'">';
+		$day = sprintf("%02d", $list_day);
+
 			/* add in the day number */
-			$calendar.='<form method="post" action="">
-                <input type="hidden" name="day" value="'.$list_day.'">
+			$calendar.='<form method="post" action="/php/tijden.php">
+                <input type="hidden" name="day" value="'.$day.'">
                 <input type="hidden" name="month" value="'.$month.'">
                 <input type="hidden" name="year" value="'.$year.'">
                 <input class="btn btn-info" type="submit" name="submit" value="'.$list_day.'">
@@ -76,10 +78,11 @@ function draw_calendar($month,$year){
 
 
 if(!empty($_POST['maand'])) {
-    
     $maand = $_POST['maand'];
+	$maand = sprintf("%02d", $maand);
 }else{
     $maand = date('m');
+	$maand = sprintf("%02d", $maand);
 }
 
 if(!empty($_POST['yaar'])) {
@@ -91,6 +94,7 @@ if(!empty($_POST['yaar'])) {
 
 if ($maand == 13){
     $maand = 1;
+	$maand = sprintf("%02d", $maand);
     $yaar = $yaar + 1;
 }
 
